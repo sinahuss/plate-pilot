@@ -1,0 +1,68 @@
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Node.js / Expo (Frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.expo/
+.expo-shared/
+dist/
+web-build/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# Java / Spring Boot (Backend)
+backend/spring-boot/build/
+backend/spring-boot/.gradle/
+backend/spring-boot/target/
+backend/spring-boot/*.jar
+backend/spring-boot/*.war
+backend/spring-boot/*.ear
+backend/spring-boot/*.class
+backend/spring-boot/.settings/
+backend/spring-boot/.project
+backend/spring-boot/.classpath
+backend/spring-boot/bin/
+
+# Python / FastAPI (Backend)
+backend/fastapi/__pycache__/
+backend/fastapi/*.py[cod]
+backend/fastapi/*$py.class
+backend/fastapi/.venv/
+backend/fastapi/venv/
+backend/fastapi/ENV/
+backend/fastapi/env/
+backend/fastapi/.Python
+backend/fastapi/*.egg-info/
+backend/fastapi/dist/
+backend/fastapi/build/
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
