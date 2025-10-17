@@ -25,8 +25,8 @@ This document outlines all the tasks to work on to deliver this particular versi
 | T005 | Create PostgreSQL Database | Set up PostgreSQL on Supabase or Railway (free tier) | None | 🟢 Completed | USER |
 | T006 | Document Database Credentials | Store database URL, username, password securely | T005 | 🟢 Completed | AGENT |
 | T007 | Test Database Connection | Verify connection using psql or database client | T005 | 🟢 Completed | AGENT |
-| T008 | Design Initial Schema | Create users table schema (see design.md) | T005 | 🔴 Not Started | AGENT |
-| T009 | Create Flyway Migration Files | Create V1__create_users_table.sql migration | T008 | 🔴 Not Started | AGENT |
+| T008 | Design Initial Schema | Create users table schema (see design.md) | T005 | 🟢 Completed | AGENT |
+| T009 | Create Flyway Migration Files | Create V1__create_users_table.sql migration | T008 | 🟢 Completed | AGENT |
 
 
 ## Phase 3: Backend - Spring Boot API Setup
@@ -146,9 +146,9 @@ This document outlines all the tasks to work on to deliver this particular versi
 ## Summary
 
 **Total Tasks:** 75  
-**Not Started:** 68  
+**Not Started:** 66  
 **In Progress:** 0  
-**Completed:** 7  
+**Completed:** 9  
 
 **Estimated Timeline:** 1-2 weeks  
 **Critical Path:** Phase 2 → Phase 3 → Phase 4 → Phase 6 → Phase 7 → Phase 9
