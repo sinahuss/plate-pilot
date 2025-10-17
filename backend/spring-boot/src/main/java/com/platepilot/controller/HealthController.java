@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/v1/health")
+@RequestMapping("/health")
 @Tag(name = "Health", description = "Health check endpoint for monitoring")
 public class HealthController {
 
@@ -27,7 +27,8 @@ public class HealthController {
         Map<String, Object> response = new HashMap<>();
         response.put("status", "ok");
         response.put("timestamp", Instant.now().toString());
-        response.put("service", "plate-pilot-api");
+        response.put("service", "Plate Pilot API");
+        response.put("version", "0.1.0");
         
         return ResponseEntity.ok(response);
     }
