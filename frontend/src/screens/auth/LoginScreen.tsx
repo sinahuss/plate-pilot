@@ -16,6 +16,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useAuth } from '../../context/AuthContext';
+import { commonStyles } from '../../styles/common';
+import { colors, spacing } from '../../styles/theme';
 
 export const LoginScreen: React.FC = () => {
   const { login } = useAuth();
@@ -45,30 +47,30 @@ export const LoginScreen: React.FC = () => {
 
   return (
     <KeyboardAvoidingView
-      style={styles.container}
+      style={commonStyles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         keyboardShouldPersistTaps="handled"
       >
-        <View style={styles.content}>
-          <Text style={styles.title}>Plate Pilot</Text>
-          <Text style={styles.subtitle}>Sign in to continue</Text>
+        <View style={commonStyles.contentContainer}>
+          <Text style={[commonStyles.title, commonStyles.textCenter]}>Plate Pilot</Text>
+          <Text style={[commonStyles.subtitle, commonStyles.textCenter]}>Sign in to continue</Text>
 
           {error && (
-            <View style={styles.errorContainer}>
-              <Text style={styles.errorText}>{error}</Text>
+            <View style={commonStyles.errorContainer}>
+              <Text style={commonStyles.errorText}>{error}</Text>
             </View>
           )}
 
           <View style={styles.form}>
-            <View style={styles.inputContainer}>
-              <Text style={styles.label}>Email</Text>
+            <View style={commonStyles.inputContainer}>
+              <Text style={commonStyles.label}>Email</Text>
               <TextInput
-                style={styles.input}
+                style={commonStyles.input}
                 placeholder="Enter your email"
-                placeholderTextColor="#999"
+                placeholderTextColor={colors.gray500}
                 value={email}
                 onChangeText={setEmail}
                 autoCapitalize="none"
@@ -78,12 +80,12 @@ export const LoginScreen: React.FC = () => {
               />
             </View>
 
-            <View style={styles.inputContainer}>
-              <Text style={styles.label}>Password</Text>
+            <View style={commonStyles.inputContainer}>
+              <Text style={commonStyles.label}>Password</Text>
               <TextInput
-                style={styles.input}
+                style={commonStyles.input}
                 placeholder="Enter your password"
-                placeholderTextColor="#999"
+                placeholderTextColor={colors.gray500}
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry
@@ -93,21 +95,21 @@ export const LoginScreen: React.FC = () => {
             </View>
 
             <TouchableOpacity
-              style={[styles.button, isLoading && styles.buttonDisabled]}
+              style={[commonStyles.button, isLoading && commonStyles.buttonDisabled]}
               onPress={handleLogin}
               disabled={isLoading}
             >
               {isLoading ? (
-                <ActivityIndicator color="#fff" />
+                <ActivityIndicator color={colors.white} />
               ) : (
-                <Text style={styles.buttonText}>Sign In</Text>
+                <Text style={commonStyles.buttonText}>Sign In</Text>
               )}
             </TouchableOpacity>
 
             <View style={styles.footer}>
               <Text style={styles.footerText}>Don't have an account? </Text>
               <TouchableOpacity disabled={isLoading}>
-                <Text style={styles.linkText}>Sign Up</Text>
+                <Text style={commonStyles.linkText}>Sign Up</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -118,96 +120,21 @@ export const LoginScreen: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
   scrollContent: {
     flexGrow: 1,
   },
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 24,
-    paddingVertical: 40,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#1a1a1a',
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
-    marginBottom: 40,
-    textAlign: 'center',
-  },
-  errorContainer: {
-    backgroundColor: '#fee',
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 20,
-    borderWidth: 1,
-    borderColor: '#fcc',
-  },
-  errorText: {
-    color: '#c00',
-    fontSize: 14,
-    textAlign: 'center',
-  },
   form: {
     width: '100%',
-  },
-  inputContainer: {
-    marginBottom: 20,
-  },
-  label: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#333',
-    marginBottom: 8,
-  },
-  input: {
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    fontSize: 16,
-    color: '#1a1a1a',
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-  },
-  button: {
-    backgroundColor: '#007AFF',
-    borderRadius: 8,
-    paddingVertical: 14,
-    alignItems: 'center',
-    marginTop: 8,
-  },
-  buttonDisabled: {
-    backgroundColor: '#ccc',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 24,
+    marginTop: spacing.xl,
   },
   footerText: {
     fontSize: 14,
-    color: '#666',
-  },
-  linkText: {
-    fontSize: 14,
-    color: '#007AFF',
-    fontWeight: '600',
+    color: colors.textSecondary,
   },
 });
 
