@@ -59,9 +59,9 @@ async def startup_event():
     """
     Actions to perform on application startup.
     """
-    print(f"🚀 {settings.app_name} v{settings.app_version} starting up...")
-    print(f"📍 Running on http://{settings.host}:{settings.port}")
-    print(f"📚 API documentation available at http://{settings.host}:{settings.port}/docs")
+    print(f"{settings.app_name} v{settings.app_version} starting up...")
+    print(f"Running on http://{settings.host}:{settings.port}")
+    print(f"API documentation available at http://{settings.host}:{settings.port}/docs")
 
 
 # Shutdown event
@@ -70,5 +70,5 @@ async def shutdown_event():
     """
     Actions to perform on application shutdown.
     """
-    print(f"🛑 {settings.app_name} shutting down...")
+    print(f"{settings.app_name} shutting down...")
 
