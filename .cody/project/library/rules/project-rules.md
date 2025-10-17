@@ -22,6 +22,9 @@ This document consolidates all coding standards, API conventions, database pract
 - PascalCase for components, camelCase for functions
 - TypeScript types/interfaces for all props and parameters
 - Prefer `const` over `let`
+- Use centralized theme (`src/styles/theme.ts`) for colors, spacing, typography
+- Use common styles (`src/styles/common.ts`) for reusable components
+- Keep only component-specific styles in local StyleSheet
 
 **Python (FastAPI):**
 - Follow PEP 8 style guide
