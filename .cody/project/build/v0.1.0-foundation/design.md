@@ -102,6 +102,7 @@ plate-pilot/                          # Root project directory
   - Flyway (Database migrations)
   - JWT Library (io.jsonwebtoken:jjwt)
   - Lombok (Boilerplate reduction)
+  - SpringDoc OpenAPI (Swagger/API Documentation)
 
 **Backend (FastAPI)**
 - **Framework:** FastAPI
@@ -189,6 +190,25 @@ DATABASE_URL=postgresql://localhost:5432/platepilot  # Optional for this version
 **Health Check:**
 - `GET /api/health` - Check API status
   - Response: `{ status: "ok", timestamp: "..." }`
+
+### API Documentation Standards
+
+**Swagger/OpenAPI Integration:**
+- All Spring Boot API endpoints are documented using SpringDoc OpenAPI annotations
+- Interactive Swagger UI available at `/api/swagger-ui.html`
+- OpenAPI JSON specification available at `/api/v3/api-docs`
+- All endpoints include:
+  - Operation summaries and descriptions
+  - Request/response schemas
+  - HTTP status codes and error responses
+  - Authentication requirements (JWT bearer token)
+- FastAPI automatically generates OpenAPI documentation at `/docs` (Swagger UI) and `/redoc` (ReDoc)
+
+**Benefits:**
+- **Interactive Testing:** Test endpoints directly from browser
+- **Auto-Generated Client SDKs:** Can generate TypeScript/Swift/Kotlin clients from OpenAPI spec
+- **Team Documentation:** Single source of truth for API contract
+- **Frontend Development:** Frontend developers can reference Swagger UI for request/response formats
 
 ### Security Considerations
 
