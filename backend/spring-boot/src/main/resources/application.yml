@@ -53,6 +53,17 @@ cors:
   allowed-headers: ${CORS_ALLOWED_HEADERS:*}
   allow-credentials: true
 
+# SpringDoc OpenAPI
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    disable-swagger-default-url: true
+    display-request-duration: true
+
 # Logging
 logging:
   level:

@@ -208,51 +208,6 @@ DATABASE_URL=postgresql://localhost:5432/platepilot  # Optional for this version
 5. Use Postman/Insomnia to test API endpoints
 6. Test authentication flow end-to-end in Expo app
 
-### Task Completion Guidelines
-
-**CRITICAL WORKFLOW RULES for AGENT:**
-
-When working through tasks in the `tasklist.md`:
-
-#### 1. Stop on Errors - No Skipping
-- If a task encounters **ANY** errors or cannot be fully completed:
-  - **STOP IMMEDIATELY** - Do not proceed to the next task
-  - **DO NOT** skip the task or mark it as completed
-  - **DO NOT** attempt workarounds that bypass the issue
-  - Report the specific error or issue to the USER
-  - Wait for USER guidance on how to proceed
-
-#### 2. Task Completion Criteria
-A task is only considered complete when **ALL** of the following are true:
-- All code changes are implemented as specified
-- No linter errors are present in the affected files
-- The functionality works as expected (tested/verified)
-- All tests (if applicable) pass
-- Changes are committed to git (see git-practices.md)
-
-#### 3. Error Reporting Protocol
-When encountering issues:
-1. **Document** the exact error message or issue
-2. **Identify** which task (ID and description) it occurred in
-3. **Explain** what was attempted before the error
-4. **Stop** and report to USER immediately
-5. **Wait** for USER to provide fixes or guidance
-6. **Resume** only after USER approval
-
-#### 4. Quality Over Speed
-- Take time to implement tasks correctly
-- Verify functionality before marking complete
-- Ask clarifying questions if task requirements are unclear
-- Do not rush through tasks just to show progress
-
-#### 5. Communication
-- Announce when starting a new task
-- Announce when a task is completed successfully
-- Immediately report any blockers or issues
-- Confirm understanding before proceeding if uncertain
-
-**Goal:** Ensure every task is properly completed with high quality code before moving forward. This prevents cascading errors and ensures a solid foundation for future tasks.
-
 ## 4. Other Technical Considerations
 _Shared any other technical information that might be relevant to building this version._
 

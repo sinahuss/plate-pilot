@@ -2,6 +2,27 @@
 
 This guide shows you how to test the Plate Pilot authentication API endpoints.
 
+## Swagger/OpenAPI Documentation
+
+The API is fully documented with **Swagger/OpenAPI**. Once the application is running, you can:
+
+### Access Swagger UI:
+```
+http://localhost:8080/api/swagger-ui.html
+```
+
+### Features:
+- 📖 **Interactive API documentation** - View all endpoints, request/response schemas
+- 🧪 **Try it out** - Test endpoints directly from the browser
+- 🔐 **JWT Authentication** - Click "Authorize" button to add your JWT token
+- 📋 **Copy curl commands** - Export requests as curl commands
+- 🎯 **Request/Response examples** - See exactly what to send and expect
+
+### OpenAPI JSON Spec:
+```
+http://localhost:8080/api/v3/api-docs
+```
+
 ## Prerequisites
 
 1. **Start the Spring Boot Application:**
@@ -13,6 +34,9 @@ This guide shows you how to test the Plate Pilot authentication API endpoints.
 
 2. **Verify the app is running:**
    Wait for the log message: `Started PlatePilotApplication`
+
+3. **Access Swagger UI** (Recommended):
+   Open http://localhost:8080/api/swagger-ui.html in your browser
 
 ## Testing Endpoints
 
