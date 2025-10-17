@@ -47,7 +47,7 @@ This document outlines all the tasks to work on to deliver this particular versi
 | ID  | Task             | Description                             | Dependencies | Status | Assigned To |
 |-----|------------------|-----------------------------------------|-------------|----------|--------|
 | T017 | Create User Entity | Create User JPA entity with id, email, password, firstName, lastName | T016 | 🟢 Completed | AGENT |
-| T018 | Create UserRepository | Create JPA repository for User entity | T017 | 🔴 Not Started | AGENT |
+| T018 | Create UserRepository | Create JPA repository for User entity | T017 | 🟢 Completed | AGENT |
 | T019 | Create JWT Utility | Create JwtUtil class for token generation and validation | T013 | 🔴 Not Started | AGENT |
 | T020 | Configure Spring Security | Set up SecurityConfig with JWT filter, disable CSRF, configure CORS | T019 | 🔴 Not Started | AGENT |
 | T021 | Create RegisterRequest DTO | DTO for registration: email, password, firstName, lastName | T012 | 🔴 Not Started | AGENT |
@@ -146,9 +146,9 @@ This document outlines all the tasks to work on to deliver this particular versi
 ## Summary
 
 **Total Tasks:** 75  
-**Not Started:** 58  
+**Not Started:** 57  
 **In Progress:** 0  
-**Completed:** 17  
+**Completed:** 18  
 
 **Estimated Timeline:** 1-2 weeks  
 **Critical Path:** Phase 2 → Phase 3 → Phase 4 → Phase 6 → Phase 7 → Phase 9
