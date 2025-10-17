@@ -2,7 +2,7 @@
 
 AI-powered weightlifting app that combines science-based mesocycle programming with intelligent exercise personalization to help bodybuilders create and follow workout plans they actually enjoy, maximizing long-term adherence and muscle growth.
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **Expo** (React Native) - Cross-platform mobile app (iOS + Web)
@@ -20,7 +20,7 @@ AI-powered weightlifting app that combines science-based mesocycle programming w
 - **OpenAI API** - Exercise recommendations (added in v0.4.0)
 - **Supabase/Railway** - PostgreSQL hosting
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 plate-pilot/                    # Monorepo root
@@ -47,7 +47,7 @@ plate-pilot/                    # Monorepo root
 └── README.md
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -164,7 +164,7 @@ expo start
 # Or scan QR code with Expo Go app on your phone
 ```
 
-## 🔧 Development Workflow
+## Development Workflow
 
 1. **Start all services:**
    - Terminal 1: `cd backend/spring-boot && ./gradlew bootRun`
@@ -177,14 +177,14 @@ expo start
 
 4. **Database changes:** Add new Flyway migration files in `backend/spring-boot/src/main/resources/db/migration/`
 
-## 📚 Documentation
+## Documentation
 
 - **PRD:** `.cody/project/plan/prd.md`
 - **Implementation Plan:** `.cody/project/plan/plan.md`
 - **Feature Backlog:** `.cody/project/build/feature-backlog.md`
 - **Current Version:** `.cody/project/build/v0.1.0-foundation/`
 
-## 🧪 Testing
+## Testing
 
 ### Manual Testing (v0.1.0)
 1. Register a new user via Expo app
@@ -201,7 +201,7 @@ cd backend/spring-boot && ./gradlew test
 cd frontend/expo && npm test
 ```
 
-## 🚢 Deployment
+## Deployment
 
 ### Backend Deployment (Railway/Vercel)
 - Deploy Spring Boot to Railway
@@ -213,7 +213,7 @@ cd frontend/expo && npm test
 - **iOS:** Build and submit to TestFlight/App Store
 - **Android:** Build APK/AAB (coming in future versions)
 
-## 🔐 Environment Variables
+## Environment Variables
 
 ### Spring Boot (`.env`)
 ```
@@ -236,26 +236,26 @@ API_BASE_URL=http://localhost:8080/api
 FASTAPI_BASE_URL=http://localhost:8000
 ```
 
-## 📋 Current Progress
+## Current Progress
 
 **Current Version:** v0.1.0-foundation  
 **Status:** In Progress
 
 See `.cody/project/build/v0.1.0-foundation/tasklist.md` for detailed task tracking.
 
-## 🤝 Contributing
+## Contributing
 
 This is a solo project for now. Contributions will be considered after v1.0 launch.
 
-## 📄 License
+## License
 
 TBD
 
-## 🙋 Support
+## Support
 
 For questions or issues, please create a GitHub issue.
 
 ---
 
-Built with ❤️ using the Cody Framework for spec-driven development.
+Built using the Cody Framework for spec-driven development.
 
