@@ -55,10 +55,10 @@ This document outlines all the tasks to work on to deliver this particular versi
 | T023 | Create AuthResponse DTO | DTO for auth response: id, email, firstName, lastName, token | T012 | 🟢 Completed | AGENT |
 | T024 | Create UserService | Implement registration and login logic with BCrypt password hashing | T018, T019 | 🟢 Completed | AGENT |
 | T025 | Create AuthController | Create /api/auth/register and /api/auth/login endpoints | T024, T021, T022, T023 | 🟢 Completed | AGENT |
-| T026 | Create Protected Endpoint | Create GET /api/auth/me endpoint to return current user | T020, T025 | 🔴 Not Started | AGENT |
-| T027 | Create Health Check Endpoint | Create GET /api/health endpoint | T012 | 🔴 Not Started | AGENT |
-| T028 | Add Input Validation | Add @Valid annotations and validation rules to DTOs | T021, T022 | 🔴 Not Started | AGENT |
-| T029 | Add Exception Handling | Create global exception handler for auth errors | T025 | 🔴 Not Started | AGENT |
+| T026 | Create Protected Endpoint | Create GET /api/auth/me endpoint to return current user | T020, T025 | 🟢 Completed | AGENT |
+| T027 | Create Health Check Endpoint | Create GET /api/health endpoint | T012 | 🟢 Completed | AGENT |
+| T028 | Add Input Validation | Add @Valid annotations and validation rules to DTOs | T021, T022 | 🟢 Completed | AGENT |
+| T029 | Add Exception Handling | Create global exception handler for auth errors | T025 | 🟢 Completed | AGENT |
 
 
 ## Phase 5: Backend - FastAPI Service Setup
@@ -146,9 +146,9 @@ This document outlines all the tasks to work on to deliver this particular versi
 ## Summary
 
 **Total Tasks:** 75  
-**Not Started:** 50  
+**Not Started:** 46  
 **In Progress:** 0  
-**Completed:** 25  
+**Completed:** 29  
 
 **Estimated Timeline:** 1-2 weeks  
 **Critical Path:** Phase 2 → Phase 3 → Phase 4 → Phase 6 → Phase 7 → Phase 9
