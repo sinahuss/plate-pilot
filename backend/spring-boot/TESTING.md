@@ -28,7 +28,7 @@ http://localhost:8080/api/v3/api-docs
 1. **Start the Spring Boot Application:**
    ```bash
    cd backend/spring-boot
-   export $(cat .env | xargs)
+   set -a; source .env; set +a
    ./gradlew bootRun
    ```
 
@@ -334,7 +334,7 @@ If you see errors like "Unable to obtain connection from database":
 
 3. **Verify environment variables are loaded:**
    ```bash
-   export $(cat .env | xargs)
+   set -a; source .env; set +a
    echo $DATABASE_URL
    ```
 

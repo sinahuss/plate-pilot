@@ -9,7 +9,7 @@ The Plate Pilot API is fully documented using **Swagger/OpenAPI 3.0** via the Sp
 ### 1. Start the Application
 ```bash
 cd backend/spring-boot
-export $(cat .env | xargs)
+set -a; source .env; set +a
 ./gradlew bootRun
 ```
 

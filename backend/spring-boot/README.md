@@ -42,16 +42,19 @@ Required environment variables:
 
 ### 3. Run the Application
 
-**Using Gradle Wrapper (recommended):**
+**Using startup script (recommended):**
 ```bash
-# Load environment variables and run
-export $(cat .env | xargs) && ./gradlew bootRun
+./start.sh
 ```
 
-**Or manually:**
+**Or manually load environment and run:**
 ```bash
+# Load environment variables and run
+set -a; source .env; set +a
 ./gradlew bootRun
 ```
+
+**Note:** The `set -a; source .env; set +a` command is more reliable than `export $(cat .env | xargs)` as it properly handles values with spaces and special characters.
 
 The API will start on `http://localhost:8080/api`
 
