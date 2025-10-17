@@ -81,9 +81,9 @@ This document outlines all the tasks to work on to deliver this particular versi
 | T037 | Initialize Expo Project | Create Expo project with TypeScript template | T001 | 🟢 Completed | AGENT |
 | T038 | Install Dependencies | Install React Navigation, React Native Paper, Axios, AsyncStorage | T037 | 🟢 Completed | AGENT |
 | T039 | Create Folder Structure | Set up src/ with screens/, components/, navigation/, services/, context/, types/, utils/ | T037 | 🟢 Completed | AGENT |
-| T040 | Configure TypeScript | Update tsconfig.json with path aliases | T037 | 🔴 Not Started | AGENT |
-| T041 | Create .env.example | Document API_BASE_URL and FASTAPI_BASE_URL | T039 | 🔴 Not Started | AGENT |
-| T042 | Set Up Environment Config | Create config.ts to load environment variables | T041 | 🔴 Not Started | AGENT |
+| T040 | Configure TypeScript | Update tsconfig.json with path aliases | T037 | 🟢 Completed | AGENT |
+| T041 | Create .env.example | Document API_BASE_URL and FASTAPI_BASE_URL | T039 | 🟢 Completed | AGENT |
+| T042 | Set Up Environment Config | Create config.ts to load environment variables | T041 | 🟢 Completed | AGENT |
 | T043 | Test Expo Startup | Run expo start and verify app loads | T037, T038 | 🔴 Not Started | AGENT |
 
 
@@ -146,9 +146,9 @@ This document outlines all the tasks to work on to deliver this particular versi
 ## Summary
 
 **Total Tasks:** 75  
-**Not Started:** 36  
+**Not Started:** 33  
 **In Progress:** 0  
-**Completed:** 39  
+**Completed:** 42  
 
 **Estimated Timeline:** 1-2 weeks  
 **Critical Path:** Phase 2 → Phase 3 → Phase 4 → Phase 5 → Phase 6 → Phase 7 → Phase 9
