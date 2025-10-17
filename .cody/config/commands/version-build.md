@@ -26,14 +26,14 @@ description: Creates a version using the feature-backlog.md file.  The USER will
 - Tell the **USER** to review the tasklist.md document in the current version and when they are done, to tell you.
 - Stop and wait for the **USER**.
 
-### CHOOSE WHAT TO BUILD 
-- Ask the **USER** which task or phase in the tasklist.md file they would like to start working on.
-- Stop here and wait for **USER** to tell you.
-
 ### READ PROJECT RULES
 - Read all files in {{cfRules}} folder to understand project conventions, coding standards, and requirements
 - Follow all rules throughout the implementation
 - If any rule conflicts with a **USER** request, ask for clarification before proceeding
+
+### CHOOSE WHAT TO BUILD 
+- Ask the **USER** which task or phase in the tasklist.md file they would like to start working on.
+- Stop here and wait for **USER** to tell you.
 
 ### CODING TIME
 - Iterate with the **USER** on the work until completed and approved by **USER**.
