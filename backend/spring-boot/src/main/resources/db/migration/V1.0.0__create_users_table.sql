@@ -1,5 +1,7 @@
--- V1: Create users table for authentication
--- Migration created for v0.1.0-foundation
+-- Migration: V1.0.0__create_users_table
+-- Description: Create users table for authentication
+-- Author: AGENT
+-- Date: 2025-01-15
 
 CREATE TABLE users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

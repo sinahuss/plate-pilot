@@ -30,6 +30,11 @@ description: Creates a version using the feature-backlog.md file.  The USER will
 - Ask the **USER** which task or phase in the tasklist.md file they would like to start working on.
 - Stop here and wait for **USER** to tell you.
 
+### READ PROJECT RULES
+- Read all files in {{cfRules}} folder to understand project conventions, coding standards, and requirements
+- Follow all rules throughout the implementation
+- If any rule conflicts with a **USER** request, ask for clarification before proceeding
+
 ### CODING TIME
 - Iterate with the **USER** on the work until completed and approved by **USER**.
 - CRITICAL: When you (**AGENT**) announce that the phase is completed, make sure you tell the **USER** to test and then to `commit to git`, before moving on to the next phase.
