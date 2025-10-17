@@ -32,6 +32,10 @@ This document consolidates all coding standards, API conventions, database pract
 - Pydantic models for request/response validation
 - Thin routes, business logic in services
 
+### File Management
+- Remove `.gitkeep` files once directory contains actual code files
+- `.gitkeep` is only for tracking empty directories in Git
+
 ### Commit Messages
 Format: `<type>: <description>` (no emojis)
 Types: feat, fix, docs, style, refactor, test, chore
