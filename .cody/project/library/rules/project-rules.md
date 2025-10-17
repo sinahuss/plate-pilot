@@ -60,7 +60,8 @@ Types: feat, fix, docs, style, refactor, test, chore
 **Server Error:** 500 (Internal Error), 503 (Service Unavailable)
 
 ### Versioning
-- Use `/api/v1/` prefix
+- Use `/api/v1/` prefix for all API endpoints
+- **Exception:** Health check endpoints should be at root level (`/health`) for infrastructure tooling (load balancers, monitoring systems)
 - Increment version for: breaking changes, removing endpoints, renaming fields
 - No increment for: new optional fields, new endpoints, bug fixes
 - Support old versions for 6+ months when introducing new version
