@@ -38,8 +38,8 @@ This document outlines all the tasks to work on to deliver this particular versi
 | T012 | Create Package Structure | Set up controller, service, repository, model, dto, security, config packages | T010 | 🟢 Completed | AGENT |
 | T013 | Configure application.yml | Add database connection, JPA, Flyway, server port settings | T010, T006 | 🟢 Completed | AGENT |
 | T014 | Create .env.example | Document required environment variables | T013 | 🟢 Completed | AGENT |
-| T015 | Test Spring Boot Startup | Run ./gradlew bootRun and verify it starts successfully | T011, T013, T009 | 🔴 Not Started | AGENT |
-| T016 | Verify Flyway Migrations | Confirm users table is created in database | T015 | 🔴 Not Started | AGENT |
+| T015 | Test Spring Boot Startup | Run ./gradlew bootRun and verify it starts successfully | T011, T013, T009 | 🟢 Completed | AGENT |
+| T016 | Verify Flyway Migrations | Confirm users table is created in database | T015 | 🟢 Completed | AGENT |
 
 
 ## Phase 4: Backend - Spring Boot Authentication
@@ -146,9 +146,9 @@ This document outlines all the tasks to work on to deliver this particular versi
 ## Summary
 
 **Total Tasks:** 75  
-**Not Started:** 61  
+**Not Started:** 59  
 **In Progress:** 0  
-**Completed:** 14  
+**Completed:** 16  
 
 **Estimated Timeline:** 1-2 weeks  
 **Critical Path:** Phase 2 → Phase 3 → Phase 4 → Phase 6 → Phase 7 → Phase 9
