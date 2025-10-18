@@ -36,11 +36,6 @@ Plate Pilot is an AI-powered weightlifting app that combines science-based mesoc
 - Willing to: Log workouts consistently and rate exercise preferences
 - May understand: Basic hypertrophy concepts (MEV/MRV/MAV) or willing to learn
 
-**Current Alternatives They Use:**
-- Paid apps like Renaissance Periodization (~$30/month), Hevy, Boostcamp, Fitbod
-- DIY spreadsheet programs from Reddit/YouTube
-- Online coaching ($100-300/month)
-
 ## Key Features
 
 ### v1.0 Must-Have Features
@@ -48,7 +43,7 @@ Plate Pilot is an AI-powered weightlifting app that combines science-based mesoc
 **1. User Onboarding Flow**
 - Experience level assessment (beginner, intermediate, advanced)
 - Training frequency selection (3-6 days per week)
-- Workout split preference (PPL, Upper/Lower, Bro Split, etc.)
+- Workout split preference (PPL, Upper/Lower, etc.)
 - General exercise preferences (compound, cable, machine, smith, barbell, dumbbell)
 - Equipment availability
 - Cardio preferences (frequency on rest days, preferred cardio types)
@@ -64,7 +59,7 @@ Plate Pilot is an AI-powered weightlifting app that combines science-based mesoc
 - User rates each exercise in generated program (like/neutral/dislike)
 - AI-powered exercise swapping using hybrid approach:
   - Rule-based filtering by muscle group, movement pattern, equipment
-  - LLM API (OpenAI) for intelligent selection and ranking
+  - LLM API for intelligent selection and ranking
 - Smart regeneration: Swap individual exercises vs. full program based on dislike count
 
 **4. Workout Logging**
@@ -94,8 +89,8 @@ Plate Pilot is an AI-powered weightlifting app that combines science-based mesoc
 
 **8. Cardio Logging**
 - Manual cardio session logging
-- Cardio types: Running, Walking, Cycling, Rowing, Stair Climber, Other
-- Log distance + time OR steps + time
+- Cardio types: Running, Walking, Cycling, Other
+- Log distance, time, and/or steps
 - Optional cardio suggestions on rest days (based on onboarding preferences)
 - Cardio counts as "active day" on consistency calendar
 - Simple, fast mobile-friendly logging interface
@@ -191,7 +186,7 @@ Plate Pilot is an AI-powered weightlifting app that combines science-based mesoc
 **Technical:**
 - We can build or source a comprehensive exercise database with accurate muscle group mappings
 - AI/LLM can make biomechanically equivalent exercise substitutions
-- OpenAI API costs will remain manageable at scale (or can switch to open-source LLM if needed)
+- API costs will remain manageable at scale (or can switch to open-source LLM if needed)
 - Hybrid AI approach (rule-based + LLM) will provide good enough personalization for v1.0
 - PostgreSQL can handle workout logging data at scale
 - Free tier services (Supabase, Railway, Vercel) will support beta testing phase
@@ -213,7 +208,7 @@ Plate Pilot is an AI-powered weightlifting app that combines science-based mesoc
 
 **External Services:**
 - **OpenAI API:** Required for AI-powered exercise recommendations and swapping
-- **Supabase or Railway:** PostgreSQL database hosting and user authentication
+- **Supabase:** PostgreSQL database hosting and user authentication
 - **Vercel:** Hosting for Expo web application
 - **Expo:** React Native framework for cross-platform development
 
@@ -238,7 +233,7 @@ Plate Pilot is an AI-powered weightlifting app that combines science-based mesoc
 - Familiarity with periodization and program design
 
 **Potential Blockers:**
-- OpenAI API rate limits or cost overruns during beta
+- API rate limits or cost overruns during beta
 - Exercise database creation time (may need to start with 100-200 core exercises)
 - Individual recovery variance may require extensive calibration testing
 - Legal/liability concerns around providing training advice (may need disclaimer/terms)

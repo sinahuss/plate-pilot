@@ -53,7 +53,7 @@ This plan outlines the technical implementation for v1.0, which includes user on
 - **File Storage:** Supabase Storage (future: exercise videos/images)
 
 **External APIs:**
-- **OpenAI API:** GPT-4 or GPT-3.5 for intelligent exercise recommendations
+- **AI LLM API:** TBD for intelligent exercise recommendations
 
 **Communication:**
 - Frontend ↔ Spring Boot: REST API (JSON)
@@ -66,6 +66,7 @@ This plan outlines the technical implementation for v1.0, which includes user on
 
 - **Authentication Module**
   - Registration and login screens
+  - Google OAuth
   - User profile management
   - Secure token storage
 
@@ -158,7 +159,7 @@ This plan outlines the technical implementation for v1.0, which includes user on
 - **Exercise Recommender**
   - Hybrid recommendation engine:
     - Rule-based filtering (muscle group, movement pattern, equipment)
-    - LLM-powered intelligent ranking (OpenAI API)
+    - LLM-powered intelligent ranking
   - Exercise similarity scoring
   - Biomechanical equivalence validation
 
@@ -270,13 +271,13 @@ This plan outlines the technical implementation for v1.0, which includes user on
 ### Phase 1: Foundation & Setup
 1. **Initialize Project Structure**
    - Set up Expo project with TypeScript
-   - Set up Spring Boot project with Gradle/Maven
+   - Set up Spring Boot project with Gradle
    - Set up Python FastAPI project
    - Configure development environment and tooling
 
 2. **Database Setup**
    - Design and create PostgreSQL schema
-   - Set up migrations (Flyway/Liquibase for Spring Boot)
+   - Set up migrations (Flyway for Spring Boot)
    - Seed exercise database with initial 100-200 exercises
    - Create volume landmark reference data
 
@@ -309,7 +310,7 @@ This plan outlines the technical implementation for v1.0, which includes user on
 ### Phase 3: Exercise Personalization
 
 7. **Exercise Preference System**
-   - UI for rating exercises (like/neutral/dislike)
+   - UI for rating exercises (like/dislike)
    - Store preference data in database
    - Build preference analysis logic
 
@@ -334,8 +335,8 @@ This plan outlines the technical implementation for v1.0, which includes user on
 
 11. **Cardio Logging Interface**
     - Build cardio logging screen
-    - Select cardio type dropdown (Running, Walking, Cycling, Rowing, Stair Climber, Other)
-    - Input fields: Distance + Time OR Steps + Time
+    - Select cardio type dropdown (Running, Walking, Cycling, Other)
+    - Input fields: Any combination of distance, time, steps, etc.
     - Save cardio session to database
     - Mark cardio as complete
 
@@ -379,7 +380,7 @@ This plan outlines the technical implementation for v1.0, which includes user on
     - Performance testing (mesocycle generation speed, API response times)
 
 18. **Deployment & Launch Prep**
-    - Deploy backend services (Railway/Vercel)
+    - Deploy backend services (Vercel)
     - Deploy web app (Vercel)
     - Submit iOS app to TestFlight
     - Set up monitoring and error tracking
@@ -388,7 +389,7 @@ This plan outlines the technical implementation for v1.0, which includes user on
 ## Tools & Services
 
 ### Development Tools
-- **IDEs:** IntelliJ IDEA (Spring Boot), VS Code (Expo, FastAPI)
+- **IDEs:** VS Code
 - **Version Control:** Git + GitHub
 - **API Testing:** Postman or Insomnia
 - **Database Client:** pgAdmin or DBeaver
@@ -419,10 +420,9 @@ This plan outlines the technical implementation for v1.0, which includes user on
 - **Requests:** HTTP client
 
 ### External Services
-- **Supabase:** PostgreSQL database + authentication (or Railway as alternative)
-- **OpenAI API:** GPT-4/GPT-3.5 for exercise recommendations
+- **Supabase:** PostgreSQL database + authentication
+- **LLM API:** TBD for exercise recommendations
 - **Vercel:** Web app hosting
-- **Railway:** Backend service hosting (alternative: Render, Fly.io)
 - **Sentry:** Error tracking and monitoring (optional)
 
 ### Database
@@ -440,137 +440,6 @@ This plan outlines the technical implementation for v1.0, which includes user on
 - **Docker:** Containerization (optional for local dev)
 - **GitHub Actions:** CI/CD pipeline (optional)
 
-## Risks & Unknowns
-
-### Technical Risks
-
-1. **Exercise Database Quality**
-   - **Risk:** Building a comprehensive, accurate exercise database with proper muscle group mappings and biomechanical categorization is time-consuming
-   - **Mitigation:** Start with 100-200 core exercises covering major movement patterns; expand iteratively based on user feedback
-
-2. **OpenAI API Costs**
-   - **Risk:** LLM API costs could become expensive at scale during beta testing
-   - **Mitigation:** Implement caching for similar swap requests; consider rate limiting; explore open-source LLM alternatives (Llama 2, Mistral)
-
-3. **Exercise Swap Quality**
-   - **Risk:** AI-generated exercise substitutions may not always be biomechanically equivalent or appropriate
-   - **Mitigation:** Use hybrid approach (rule-based + LLM); implement user feedback loop to report poor swaps; manual review of common swaps
-
-4. **Auto-Adjustment Algorithm Complexity**
-   - **Risk:** Individual recovery variance and training response differ greatly; auto-adjustment may not work well for all users
-   - **Mitigation:** Start with conservative adjustment rules; collect user feedback; allow manual override of auto-adjustments
-
-5. **Performance at Scale**
-   - **Risk:** Mesocycle generation or AI swap requests may be slow with complex programs
-   - **Mitigation:** Set performance targets (<10s for mesocycle, <3s for swap); implement caching; optimize database queries; async processing
-
-6. **Mobile App Store Approval**
-   - **Risk:** iOS App Store may have concerns about health/fitness advice liability
-   - **Mitigation:** Include clear disclaimers; position as a tool, not medical advice; consult legal requirements early
-
-### Product Risks
-
-7. **Volume Landmark Data Accuracy**
-   - **Risk:** Published research on MEV/MAV/MRV may not generalize to all users
-   - **Mitigation:** Use conservative starting values; allow users to adjust based on experience; collect feedback during beta
-
-8. **User Onboarding Complexity**
-   - **Risk:** Onboarding flow may be too long or confusing for new users
-   - **Mitigation:** Test with beta users; provide "help me" options; allow skipping optional questions; save progress
-
-9. **Logging Adherence**
-   - **Risk:** Users may not log workouts consistently, breaking auto-adjustment functionality
-   - **Mitigation:** Make logging as fast as possible; send reminders; show value of logging through progress feedback
-
-### Business & Timeline Risks
-
-10. **Solo Developer Timeline**
-    - **Risk:** 8-12 week timeline may be ambitious for a solo developer building v1.0
-    - **Mitigation:** Focus ruthlessly on MVP features; cut scope if needed; use boilerplate/starter templates where possible
-
-11. **Market Differentiation**
-    - **Risk:** Competitors (RP, Hevy, Boostcamp) are established; users may not switch
-    - **Mitigation:** Focus on unique value prop (AI exercise personalization); target users frustrated with rigid programs; beta testing with real users for feedback
-
-12. **Consistency Calendar Motivation**
-    - **Risk:** Users may find calendar/streak tracking demotivating if they miss days
-    - **Mitigation:** Focus on positive reinforcement; allow marking rest days; don't punish missed days; cardio tracking helps users count "active days" beyond weightlifting; future v2.0 can add Apple Health step tracking for broader "activity" definition
-
-13. **Cardio Feature Scope Creep**
-    - **Risk:** Adding cardio logging could expand scope beyond hypertrophy focus; users may expect full cardio programming features
-    - **Mitigation:** Keep v1.0 cardio simple (manual logging only, no programming intelligence); position as consistency tracking, not cardio programming; clearly communicate v1.0 scope in onboarding
-
-14. **GDPR Compliance**
-    - **Risk:** Handling EU user data requires GDPR compliance (user consent, data deletion, etc.)
-    - **Mitigation:** Use Supabase for compliant data storage; implement data deletion endpoints; add privacy policy and terms
-
-## Milestones
-
-### Milestone 1: Project Setup & Authentication (Week 1-2)
-- ✅ Monorepo structure created (backend/, frontend/)
-- ✅ PostgreSQL database deployed
-- ✅ Database schema for users table designed
-- ✅ Flyway migration V1__create_users_table.sql created
-- ✅ Git repository initialized with proper .gitignore
-- ✅ Project README created with structure documentation
-- ✅ Spring Boot API initialization completed
-- ✅ FastAPI service initialization completed
-- ✅ Expo project initialization completed
-- ✅ Spring Boot authentication system implemented (JWT, registration, login)
-- ✅ FastAPI health check endpoint working
-- ⏳ User authentication working end-to-end (pending frontend UI)
-- ⏳ Basic frontend navigation structure (pending)
-
-### Milestone 2: Onboarding & Exercise Database (Week 2-3)
-- ⏳ Exercise database seeded with 100+ exercises (pending)
-- ⏳ Onboarding flow UI complete (including cardio preferences) (pending)
-- ⏳ User preferences saved to database (pending)
-- ⏳ Exercise database API endpoints functional (pending)
-
-### Milestone 3: Mesocycle Generation (Week 3-5)
-- ⏳ Volume landmark logic implemented (pending)
-- ⏳ Mesocycle generation algorithm working (pending)
-- ⏳ User can generate a personalized 8-week mesocycle (pending)
-- ⏳ Workouts displayed in app (pending)
-- ⏳ Program preview and confirmation flow (pending)
-
-### Milestone 4: Exercise Preferences & AI Swapping (Week 5-7)
-- ⏳ Exercise rating UI functional (pending)
-- ⏳ FastAPI AI service integrated with OpenAI (pending)
-- ⏳ Hybrid recommendation algorithm working (pending)
-- ⏳ User can swap exercises and see AI recommendations (pending)
-- ⏳ Mesocycle updates with swapped exercises (pending)
-
-### Milestone 5: Workout & Cardio Logging (Week 7-9)
-- ⏳ Workout logging interface complete (pending)
-- ⏳ Set/rep/weight data saves to database (pending)
-- ⏳ User can mark sets and workouts complete (pending)
-- ⏳ Cardio logging interface complete (pending)
-- ⏳ Cardio sessions save to database (type, distance/steps, duration) (pending)
-- ⏳ Workout and cardio history displays logged data (pending)
-
-### Milestone 6: Auto-Adjustment & Progressive Overload (Week 9-10)
-- ⏳ Performance analysis service functional (pending)
-- ⏳ Weekly auto-adjustment algorithm working (pending)
-- ⏳ Volume adjustments stay within MEV-MRV range (pending)
-- ⏳ User sees adjusted workouts for upcoming week (pending)
-
-### Milestone 7: Consistency Tracking, Polish & Deployment (Week 11-12)
-- ⏳ Consistency calendar and streak tracker complete (includes weightlifting and cardio) (pending)
-- ⏳ Program dashboard complete with integrated streak display and cardio suggestions (pending)
-- ⏳ All critical user flows tested end-to-end (including cardio logging) (pending)
-- ⏳ Performance targets met (<10s mesocycle, <3s swap, <2s workout load) (pending)
-- ⏳ Backend deployed to Railway/Vercel (pending)
-- ⏳ Web app deployed to Vercel (pending)
-- ⏳ iOS app submitted to TestFlight (pending)
-- ⏳ Beta testing begins (pending)
-
-### Milestone 8: Beta Launch (Week 12+)
-- ⏳ 10-20 beta testers actively using the app (pending)
-- ⏳ Feedback collected and prioritized (pending)
-- ⏳ Critical bugs fixed (pending)
-- ⏳ Ready for public launch planning (pending)
-
 ## Environment Setup
 
 ### Prerequisites
@@ -580,62 +449,7 @@ This plan outlines the technical implementation for v1.0, which includes user on
 - **PostgreSQL:** 14+ (local or remote via Supabase/Railway)
 - **Git:** For version control
 - **Expo CLI:** `npm install -g expo-cli`
-- **IDE:** IntelliJ IDEA (Spring Boot), VS Code (Expo, FastAPI)
-
-### Initial Setup Steps
-
-1. **Clone Repository**
-   ```bash
-   git clone <repository-url>
-   cd plate-pilot
-   ```
-
-2. **Frontend Setup (Expo)**
-   ```bash
-   cd frontend
-   npm install
-   # Create .env file with API endpoints
-   expo start
-   ```
-
-3. **Backend Setup (Spring Boot)**
-   ```bash
-   cd backend/spring-boot
-   # Configure application.yml with database credentials
-   ./gradlew bootRun  # or mvn spring-boot:run
-   ```
-
-4. **AI Service Setup (FastAPI)**
-   ```bash
-   cd backend/fastapi
-   python -m venv venv
-   source venv/bin/activate  # or venv\Scripts\activate on Windows
-   pip install -r requirements.txt
-   # Create .env file with OpenAI API key
-   uvicorn main:app --reload
-   ```
-
-5. **Database Setup**
-   - Create PostgreSQL database (local or Supabase/Railway)
-   - Run migrations: Spring Boot will auto-apply Flyway migrations on startup
-   - Seed exercise database using provided SQL script or seed service
-
-6. **Environment Variables**
-   - **Frontend (.env):**
-     - `API_BASE_URL`: Spring Boot API endpoint
-   - **Spring Boot (application.yml or .env):**
-     - `DATABASE_URL`: PostgreSQL connection string
-     - `JWT_SECRET`: Secret for JWT tokens
-     - `FASTAPI_URL`: FastAPI service endpoint
-   - **FastAPI (.env):**
-     - `OPENAI_API_KEY`: OpenAI API key
-     - `DATABASE_URL`: PostgreSQL connection (if needed for direct queries)
-
-7. **Verify Setup**
-   - Frontend: Open Expo app, verify login screen loads
-   - Spring Boot: Hit health check endpoint `GET /api/health`
-   - FastAPI: Hit docs endpoint `GET /docs`
-   - Database: Verify connection and tables exist
+- **IDE:** VS Code
 
 ### Development Workflow
 - Frontend runs on Expo (mobile simulator or web)
