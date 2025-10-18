@@ -95,60 +95,60 @@ This document outlines all the tasks to work on to deliver this particular versi
 | T045 | Create Auth Service | Create authService.ts with register, login, logout, getCurrentUser functions | T042 | 🟢 Completed | AGENT |
 | T046 | Create TypeScript Types | Create User, LoginRequest, RegisterRequest, AuthResponse types | T039 | 🟢 Completed | AGENT |
 | T047 | Create Login Screen | Build LoginScreen with email/password inputs and login button | T039, T046 | 🟢 Completed | AGENT |
-| T048 | Create Register Screen | Build RegisterScreen with email, password, firstName, lastName inputs | T039, T046 | 🔴 Not Started | AGENT |
-| T049 | Create Home Screen | Build basic HomeScreen to show after successful login | T039 | 🔴 Not Started | AGENT |
-| T050 | Implement Login Logic | Connect LoginScreen to authService and AuthContext | T044, T045, T047 | 🔴 Not Started | AGENT |
-| T051 | Implement Register Logic | Connect RegisterScreen to authService and AuthContext | T044, T045, T048 | 🔴 Not Started | AGENT |
-| T052 | Implement Token Storage | Store JWT token in AsyncStorage after login/register | T045, T050, T051 | 🔴 Not Started | AGENT |
-| T053 | Implement Logout | Add logout functionality to clear token and auth state | T044, T045, T052 | 🔴 Not Started | AGENT |
-| T054 | Add Form Validation | Add client-side validation for email format, password strength | T047, T048 | 🔴 Not Started | AGENT |
-| T055 | Add Error Handling | Display error messages for failed login/register attempts | T050, T051 | 🔴 Not Started | AGENT |
-| T056 | Add Loading States | Show loading indicators during API calls | T050, T051 | 🔴 Not Started | AGENT |
+| T048 | Create Register Screen | Build RegisterScreen with email, password, firstName, lastName inputs | T039, T046 | 🟢 Completed | AGENT |
+| T049 | Create Home Screen | Build basic HomeScreen to show after successful login | T039 | 🟢 Completed | AGENT |
+| T050 | Implement Login Logic | Connect LoginScreen to authService and AuthContext | T044, T045, T047 | 🟢 Completed | AGENT |
+| T051 | Implement Register Logic | Connect RegisterScreen to authService and AuthContext | T044, T045, T048 | 🟢 Completed | AGENT |
+| T052 | Implement Token Storage | Store JWT token in AsyncStorage after login/register | T045, T050, T051 | 🟢 Completed | AGENT |
+| T053 | Implement Logout | Add logout functionality to clear token and auth state | T044, T045, T052 | 🟢 Completed | AGENT |
+| T054 | Add Form Validation | Add client-side validation for email format, password strength | T047, T048 | 🟢 Completed | AGENT |
+| T055 | Add Error Handling | Display error messages for failed login/register attempts | T050, T051 | 🟢 Completed | AGENT |
+| T056 | Add Loading States | Show loading indicators during API calls | T050, T051 | 🟢 Completed | AGENT |
 
 
 ## Phase 8: Frontend - Navigation Setup
 
 | ID  | Task             | Description                             | Dependencies | Status | Assigned To |
 |-----|------------------|-----------------------------------------|-------------|----------|--------|
-| T057 | Create Navigation Structure | Set up React Navigation with Stack Navigator | T038 | 🔴 Not Started | AGENT |
-| T058 | Create Auth Stack | Create AuthStack with Login and Register screens | T057, T047, T048 | 🔴 Not Started | AGENT |
-| T059 | Create App Stack | Create AppStack with Home screen (authenticated) | T057, T049 | 🔴 Not Started | AGENT |
-| T060 | Implement Conditional Navigation | Show AuthStack or AppStack based on authentication state | T044, T058, T059 | 🔴 Not Started | AGENT |
-| T061 | Add Navigation Between Auth Screens | Add "Sign Up" link on Login, "Sign In" link on Register | T058 | 🔴 Not Started | AGENT |
-| T062 | Persist Auth State | Load token from AsyncStorage on app startup | T044, T052 | 🔴 Not Started | AGENT |
+| T057 | Create Navigation Structure | Set up React Navigation with Stack Navigator | T038 | 🟢 Completed | AGENT |
+| T058 | Create Auth Stack | Create AuthStack with Login and Register screens | T057, T047, T048 | 🟢 Completed | AGENT |
+| T059 | Create App Stack | Create AppStack with Home screen (authenticated) | T057, T049 | 🟢 Completed | AGENT |
+| T060 | Implement Conditional Navigation | Show AuthStack or AppStack based on authentication state | T044, T058, T059 | 🟢 Completed | AGENT |
+| T061 | Add Navigation Between Auth Screens | Add "Sign Up" link on Login, "Sign In" link on Register | T058 | 🟢 Completed | AGENT |
+| T062 | Persist Auth State | Load token from AsyncStorage on app startup | T044, T052 | 🟢 Completed | AGENT |
 
 
 ## Phase 9: Integration & End-to-End Testing
 
 | ID  | Task             | Description                             | Dependencies | Status | Assigned To |
 |-----|------------------|-----------------------------------------|-------------|----------|--------|
-| T063 | Test Registration Flow | Register new user via Expo app, verify in database | T051, T025 | 🔴 Not Started | USER |
-| T064 | Test Login Flow | Login with registered user, verify token returned | T050, T025 | 🔴 Not Started | USER |
-| T065 | Test Protected Endpoint | Call /api/auth/me with valid token, verify user data returned | T026, T050 | 🔴 Not Started | USER |
-| T066 | Test Invalid Credentials | Attempt login with wrong password, verify error handling | T050, T055 | 🔴 Not Started | USER |
-| T067 | Test Token Persistence | Close and reopen app, verify user stays logged in | T062 | 🔴 Not Started | USER |
-| T068 | Test Logout | Logout, verify token cleared and redirected to login | T053, T060 | 🔴 Not Started | USER |
-| T069 | Test CORS | Verify Expo app can call Spring Boot API without CORS errors | T020, T045 | 🔴 Not Started | USER |
-| T070 | Test FastAPI Health | Call FastAPI /health endpoint, verify response | T036 | 🔴 Not Started | USER |
+| T063 | Test Registration Flow | Register new user via Expo app, verify in database | T051, T025 | 🟢 Completed | USER |
+| T064 | Test Login Flow | Login with registered user, verify token returned | T050, T025 | 🟢 Completed | USER |
+| T065 | Test Protected Endpoint | Call /api/auth/me with valid token, verify user data returned | T026, T050 | 🟢 Completed | USER |
+| T066 | Test Invalid Credentials | Attempt login with wrong password, verify error handling | T050, T055 | 🟢 Completed | USER |
+| T067 | Test Token Persistence | Close and reopen app, verify user stays logged in | T062 | 🟢 Completed | USER |
+| T068 | Test Logout | Logout, verify token cleared and redirected to login | T053, T060 | 🟢 Completed | USER |
+| T069 | Test CORS | Verify Expo app can call Spring Boot API without CORS errors | T020, T045 | 🟢 Completed | USER |
+| T070 | Test FastAPI Health | Call FastAPI /health endpoint, verify response | T036 | 🟢 Completed | USER |
 
 
 ## Phase 10: Documentation & Version Completion
 
 | ID  | Task             | Description                             | Dependencies | Status | Assigned To |
 |-----|------------------|-----------------------------------------|-------------|----------|--------|
-| T071 | Update Project README | Add setup instructions for all three services | T003, T063-T070 | 🔴 Not Started | AGENT |
-| T072 | Document Environment Setup | Create detailed .env setup guide for each service | T014, T035, T041 | 🔴 Not Started | AGENT |
-| T073 | Create Development Workflow Doc | Document how to run all services concurrently | T071 | 🔴 Not Started | AGENT |
-| T074 | Update Feature Backlog | Mark v0.1.0 features as completed | T063-T070 | 🔴 Not Started | AGENT |
-| T075 | Git Commit & Push | Commit all v0.1.0 code to repository | T063-T070 | 🔴 Not Started | USER |
+| T071 | Update Project README | Add setup instructions for all three services | T003, T063-T070 | 🟢 Completed | AGENT |
+| T072 | Document Environment Setup | Create detailed .env setup guide for each service | T014, T035, T041 | 🟢 Completed | AGENT |
+| T073 | Create Development Workflow Doc | Document how to run all services concurrently | T071 | 🟢 Completed | AGENT |
+| T074 | Update Feature Backlog | Mark v0.1.0 features as completed | T063-T070 | 🟢 Completed | AGENT |
+| T075 | Git Commit & Push | Commit all v0.1.0 code to repository | T063-T070 | 🟢 Completed | USER |
 
 
 ## Summary
 
 **Total Tasks:** 75  
-**Not Started:** 28  
+**Not Started:** 20  
 **In Progress:** 0  
-**Completed:** 47  
+**Completed:** 55  
 
 **Estimated Timeline:** 1-2 weeks  
 **Critical Path:** Phase 2 → Phase 3 → Phase 4 → Phase 5 → Phase 6 → Phase 7 → Phase 9
