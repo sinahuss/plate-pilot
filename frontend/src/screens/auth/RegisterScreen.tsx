@@ -1,6 +1,6 @@
 /**
  * Register Screen
- * Allows users to create a new account with email, password, firstName, and lastName
+ * Allows users to create a new account with email, password, first name, and last name
  */
 
 import React, { useState } from 'react';
@@ -18,40 +18,64 @@ import {
 import { useAuth } from '../../context/AuthContext';
 import { commonStyles } from '../../styles/common';
 import { colors, spacing } from '../../styles/theme';
-import { RegisterRequest } from '../../types/auth.types';
 
 export const RegisterScreen: React.FC = () => {
   const { register, loginWithGoogle } = useAuth();
-  const [formData, setFormData] = useState<RegisterRequest>({
-    email: '',
-    password: '',
-    firstName: '',
-    lastName: '',
-  });
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleInputChange = (field: keyof RegisterRequest, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const validateForm = () => {
+    if (!firstName.trim()) {
+      setError('First name is required');
+      return false;
+    }
+    if (!lastName.trim()) {
+      setError('Last name is required');
+      return false;
+    }
+    if (!email.trim()) {
+      setError('Email is required');
+      return false;
+    }
+    if (!email.includes('@')) {
+      setError('Please enter a valid email address');
+      return false;
+    }
+    if (!password) {
+      setError('Password is required');
+      return false;
+    }
+    if (password.length < 8) {
+      setError('Password must be at least 8 characters long');
+      return false;
+    }
+    if (password !== confirmPassword) {
+      setError('Passwords do not match');
+      return false;
+    }
+    return true;
   };
 
   const handleRegister = async () => {
     setError(null);
     
-    // Basic validation
-    if (!formData.email || !formData.password || !formData.firstName || !formData.lastName) {
-      setError('Please fill in all fields');
-      return;
-    }
-
-    if (formData.password.length < 6) {
-      setError('Password must be at least 6 characters long');
+    if (!validateForm()) {
       return;
     }
 
     try {
       setIsLoading(true);
-      await register(formData);
+      await register({
+        email: email.trim(),
+        password,
+        firstName: firstName.trim(),
+        lastName: lastName.trim(),
+      });
     } catch (err: any) {
       setError(err.message || 'Registration failed. Please try again.');
     } finally {
@@ -59,14 +83,14 @@ export const RegisterScreen: React.FC = () => {
     }
   };
 
-  const handleGoogleLogin = async () => {
+  const handleGoogleRegister = async () => {
     setError(null);
     
     try {
       setIsLoading(true);
       await loginWithGoogle();
     } catch (err: any) {
-      setError(err.message || 'Google login failed. Please try again.');
+      setError(err.message || 'Google registration failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -99,8 +123,8 @@ export const RegisterScreen: React.FC = () => {
                   style={commonStyles.input}
                   placeholder="First name"
                   placeholderTextColor={colors.gray500}
-                  value={formData.firstName}
-                  onChangeText={(value) => handleInputChange('firstName', value)}
+                  value={firstName}
+                  onChangeText={setFirstName}
                   autoCapitalize="words"
                   autoComplete="given-name"
                   editable={!isLoading}
@@ -113,8 +137,8 @@ export const RegisterScreen: React.FC = () => {
                   style={commonStyles.input}
                   placeholder="Last name"
                   placeholderTextColor={colors.gray500}
-                  value={formData.lastName}
-                  onChangeText={(value) => handleInputChange('lastName', value)}
+                  value={lastName}
+                  onChangeText={setLastName}
                   autoCapitalize="words"
                   autoComplete="family-name"
                   editable={!isLoading}
@@ -128,8 +152,8 @@ export const RegisterScreen: React.FC = () => {
                 style={commonStyles.input}
                 placeholder="Enter your email"
                 placeholderTextColor={colors.gray500}
-                value={formData.email}
-                onChangeText={(value) => handleInputChange('email', value)}
+                value={email}
+                onChangeText={setEmail}
                 autoCapitalize="none"
                 keyboardType="email-address"
                 autoComplete="email"
@@ -141,17 +165,28 @@ export const RegisterScreen: React.FC = () => {
               <Text style={commonStyles.label}>Password</Text>
               <TextInput
                 style={commonStyles.input}
-                placeholder="Enter your password"
+                placeholder="Create a password"
                 placeholderTextColor={colors.gray500}
-                value={formData.password}
-                onChangeText={(value) => handleInputChange('password', value)}
+                value={password}
+                onChangeText={setPassword}
                 secureTextEntry
                 autoComplete="new-password"
                 editable={!isLoading}
               />
-              <Text style={styles.passwordHint}>
-                Password must be at least 6 characters long
-              </Text>
+            </View>
+
+            <View style={commonStyles.inputContainer}>
+              <Text style={commonStyles.label}>Confirm Password</Text>
+              <TextInput
+                style={commonStyles.input}
+                placeholder="Confirm your password"
+                placeholderTextColor={colors.gray500}
+                value={confirmPassword}
+                onChangeText={setConfirmPassword}
+                secureTextEntry
+                autoComplete="new-password"
+                editable={!isLoading}
+              />
             </View>
 
             <TouchableOpacity
@@ -172,7 +207,7 @@ export const RegisterScreen: React.FC = () => {
 
             <TouchableOpacity
               style={[commonStyles.buttonSecondary, isLoading && commonStyles.buttonDisabled]}
-              onPress={handleGoogleLogin}
+              onPress={handleGoogleRegister}
               disabled={isLoading}
             >
               <Text style={commonStyles.buttonSecondaryText}>Continue with Google</Text>
@@ -201,15 +236,10 @@ const styles = StyleSheet.create({
   nameRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    gap: spacing.base,
   },
   nameInput: {
     flex: 1,
-    marginRight: spacing.sm,
-  },
-  passwordHint: {
-    fontSize: 12,
-    color: colors.textSecondary,
-    marginTop: spacing.xs,
   },
   footer: {
     flexDirection: 'row',
