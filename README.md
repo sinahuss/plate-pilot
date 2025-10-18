@@ -24,11 +24,6 @@ AI-powered weightlifting app that combines science-based mesocycle programming w
 
 ```
 plate-pilot/                    # Monorepo root
-├── .cody/                      # Cody Framework (project management)
-│   ├── config/                 # Framework configuration
-│   └── project/                # Planning documents
-│       ├── plan/               # PRD, plan, discovery
-│       └── build/              # Version tasklists and design docs
 ├── backend/
 │   ├── spring-boot/            # Main API service
 │   │   ├── src/
@@ -179,10 +174,9 @@ expo start
 
 ## Documentation
 
-- **PRD:** `.cody/project/plan/prd.md`
-- **Implementation Plan:** `.cody/project/plan/plan.md`
-- **Feature Backlog:** `.cody/project/build/feature-backlog.md`
-- **Current Version:** `.cody/project/build/v0.1.0-foundation/`
+- **PRD:** `docs/prd.md`
+- **Implementation Plan:** `docs/plan.md`
+- **Feature Backlog:** `docs/feature-backlog.md`
 
 ## Testing
 
@@ -241,8 +235,6 @@ FASTAPI_BASE_URL=http://localhost:8000
 **Current Version:** v0.1.0-foundation  
 **Status:** In Progress
 
-See `.cody/project/build/v0.1.0-foundation/tasklist.md` for detailed task tracking.
-
 ## Contributing
 
 This is a solo project for now. Contributions will be considered after v1.0 launch.
@@ -254,8 +246,3 @@ TBD
 ## Support
 
 For questions or issues, please create a GitHub issue.
-
----
-
-Built using the Cody Framework for spec-driven development.
-

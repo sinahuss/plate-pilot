@@ -20,7 +20,7 @@ Plate Pilot is an AI-powered weightlifting app that combines science-based mesoc
 
 This plan outlines the technical implementation for v1.0, which includes user onboarding, science-based mesocycle generation, AI-powered exercise swapping based on preferences, workout logging, and weekly auto-adjustment. The system will be built as a cross-platform mobile application using Expo/React Native for the frontend, Spring Boot for the main backend API, Python FastAPI for AI/LLM services, and PostgreSQL for data persistence.
 
-**Current Status:** Development is underway on v0.1.0-foundation. The monorepo structure (backend/spring-boot, backend/fastapi, frontend/expo) has been established, PostgreSQL database has been deployed, and the initial users table schema has been designed with Flyway migration V1__create_users_table.sql. The project is ready to proceed with Spring Boot API setup, FastAPI service setup, and Expo frontend development.
+**Current Status:** Development is underway on v0.1.0-foundation. The monorepo structure (backend/spring-boot, backend/fastapi, frontend/expo) has been established, PostgreSQL database has been deployed, and the initial users table schema has been designed with Flyway migration V1__create_users_table.sql. Spring Boot API has been initialized with complete authentication system including JWT tokens, user registration/login endpoints, and security configuration. FastAPI service is set up with basic health check endpoint. Expo frontend project is initialized with TypeScript and basic folder structure. The project is ready to proceed with frontend authentication UI development and end-to-end testing.
 
 ## Architecture
 
@@ -513,10 +513,12 @@ This plan outlines the technical implementation for v1.0, which includes user on
 - ✅ Flyway migration V1__create_users_table.sql created
 - ✅ Git repository initialized with proper .gitignore
 - ✅ Project README created with structure documentation
-- 🔄 Spring Boot API initialization (in progress)
-- 🔄 FastAPI service initialization (in progress)
-- 🔄 Expo project initialization (in progress)
-- ⏳ User authentication working end-to-end (pending)
+- ✅ Spring Boot API initialization completed
+- ✅ FastAPI service initialization completed
+- ✅ Expo project initialization completed
+- ✅ Spring Boot authentication system implemented (JWT, registration, login)
+- ✅ FastAPI health check endpoint working
+- ⏳ User authentication working end-to-end (pending frontend UI)
 - ⏳ Basic frontend navigation structure (pending)
 
 ### Milestone 2: Onboarding & Exercise Database (Week 2-3)

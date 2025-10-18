@@ -25,11 +25,6 @@ _High-level technical structure that supports all features in this version._
 ### Monorepo Structure
 ```
 plate-pilot/                          # Root project directory
-├── .cody/                            # Cody Framework (project management)
-│   ├── config/
-│   └── project/
-│       ├── plan/
-│       └── build/
 ├── backend/
 │   ├── spring-boot/                  # Main API service
 │   │   ├── src/

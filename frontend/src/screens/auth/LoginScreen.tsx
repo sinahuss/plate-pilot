@@ -15,11 +15,17 @@ import {
   ScrollView,
   ActivityIndicator,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { useAuth } from '../../context/AuthContext';
 import { commonStyles } from '../../styles/common';
 import { colors, spacing } from '../../styles/theme';
+import { AuthStackParamList } from '../../navigation/AuthStack';
+
+type LoginScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Login'>;
 
 export const LoginScreen: React.FC = () => {
+  const navigation = useNavigation<LoginScreenNavigationProp>();
   const { login, loginWithGoogle } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -133,7 +139,10 @@ export const LoginScreen: React.FC = () => {
 
             <View style={styles.footer}>
               <Text style={styles.footerText}>Don't have an account? </Text>
-              <TouchableOpacity disabled={isLoading}>
+              <TouchableOpacity 
+                disabled={isLoading}
+                onPress={() => navigation.navigate('Register')}
+              >
                 <Text style={commonStyles.linkText}>Sign Up</Text>
               </TouchableOpacity>
             </View>

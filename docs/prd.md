@@ -17,6 +17,8 @@ This document formalizes the idea and defines the what and the why of the produc
 ## Summary
 Plate Pilot is an AI-powered weightlifting app that combines science-based mesocycle programming with intelligent exercise personalization to help bodybuilders create and follow workout plans they actually enjoy, maximizing long-term adherence and muscle growth.
 
+**Current Development Status:** v0.1.0-foundation is in progress. The monorepo structure has been established, PostgreSQL database is set up, and initial database schema for users has been designed with Flyway migrations. Spring Boot API has been initialized with authentication endpoints, FastAPI service is set up, and Expo frontend project is initialized. The project is ready for frontend authentication UI development and end-to-end testing.
+
 ## Goals
 - **Maximize Training Adherence:** Enable users to train consistently for 12+ weeks by providing personalized programs with exercises they enjoy
 - **Apply Evidence-Based Programming:** Implement science-based volume landmarks (MEV, MAV, MRV) and frequency recommendations for optimal hypertrophy
