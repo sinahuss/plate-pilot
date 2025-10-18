@@ -24,8 +24,14 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
     
-    @Column(name = "password_hash", nullable = false)
+    @Column(name = "password_hash")
     private String passwordHash;
+    
+    @Column(name = "auth_provider", length = 20)
+    private String authProvider = "LOCAL";
+    
+    @Column(name = "google_id", unique = true)
+    private String googleId;
     
     @Column(name = "first_name", length = 100)
     private String firstName;

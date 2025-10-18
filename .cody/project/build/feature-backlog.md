@@ -25,6 +25,8 @@ Project setup, authentication, and foundational infrastructure.
 | F009 | Navigation Structure | Set up React Navigation with basic app structure | High | 🔴 Not Started |
 | F010 | Environment Configuration | Configure .env files and environment variables | Medium | 🔴 Not Started |
 
+||F011 | Google Authentication | Add Google OAuth2 login/register option to auth screens | High | 🔴 Not Started |
+
 ## v0.2.0-onboarding - 🔴 Not Started
 User onboarding flow and exercise database creation.
 

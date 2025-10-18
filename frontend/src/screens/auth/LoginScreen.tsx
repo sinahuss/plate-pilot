@@ -20,7 +20,7 @@ import { commonStyles } from '../../styles/common';
 import { colors, spacing } from '../../styles/theme';
 
 export const LoginScreen: React.FC = () => {
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -40,6 +40,19 @@ export const LoginScreen: React.FC = () => {
       await login(email, password);
     } catch (err: any) {
       setError(err.message || 'Login failed. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    setError(null);
+    
+    try {
+      setIsLoading(true);
+      await loginWithGoogle();
+    } catch (err: any) {
+      setError(err.message || 'Google login failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -106,6 +119,18 @@ export const LoginScreen: React.FC = () => {
               )}
             </TouchableOpacity>
 
+            <View style={styles.divider}>
+              <Text style={styles.dividerText}>or</Text>
+            </View>
+
+            <TouchableOpacity
+              style={[commonStyles.buttonSecondary, isLoading && commonStyles.buttonDisabled]}
+              onPress={handleGoogleLogin}
+              disabled={isLoading}
+            >
+              <Text style={commonStyles.buttonSecondaryText}>Continue with Google</Text>
+            </TouchableOpacity>
+
             <View style={styles.footer}>
               <Text style={styles.footerText}>Don't have an account? </Text>
               <TouchableOpacity disabled={isLoading}>
@@ -135,6 +160,18 @@ const styles = StyleSheet.create({
   footerText: {
     fontSize: 14,
     color: colors.textSecondary,
+  },
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: spacing.lg,
+  },
+  dividerText: {
+    flex: 1,
+    textAlign: 'center',
+    fontSize: 14,
+    color: colors.textSecondary,
+    marginHorizontal: spacing.base,
   },
 });
 

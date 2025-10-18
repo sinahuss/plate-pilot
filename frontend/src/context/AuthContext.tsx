@@ -7,6 +7,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContextType, AuthState, User, RegisterRequest } from '../types/auth.types';
 import { authService } from '../services/authService';
+import { googleAuthService, GoogleAuthResponse } from '../services/googleAuthService';
 import { AUTH_CONFIG } from '../config/config';
 
 const initialState: AuthState = {
@@ -134,6 +135,46 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   /**
+   * Login with Google
+   */
+  const loginWithGoogle = async (): Promise<void> => {
+    try {
+      setState((prev) => ({ ...prev, isLoading: true }));
+
+      const response = await googleAuthService.signInWithGoogle();
+
+      if (response) {
+        // Store token and user data
+        await AsyncStorage.setItem(AUTH_CONFIG.tokenKey, response.token);
+        await AsyncStorage.setItem(AUTH_CONFIG.userKey, JSON.stringify({
+          id: response.id,
+          email: response.email,
+          firstName: response.firstName,
+          lastName: response.lastName,
+        }));
+
+        setState({
+          user: {
+            id: response.id,
+            email: response.email,
+            firstName: response.firstName,
+            lastName: response.lastName,
+          },
+          token: response.token,
+          isAuthenticated: true,
+          isLoading: false,
+        });
+      } else {
+        setState((prev) => ({ ...prev, isLoading: false }));
+        throw new Error('Google authentication was cancelled');
+      }
+    } catch (error) {
+      setState((prev) => ({ ...prev, isLoading: false }));
+      throw error;
+    }
+  };
+
+  /**
    * Logout user
    */
   const logout = async (): Promise<void> => {
@@ -157,6 +198,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     ...state,
     login,
     register,
+    loginWithGoogle,
     logout,
     checkAuth,
   };
